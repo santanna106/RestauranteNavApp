@@ -29,7 +29,8 @@ import com.ggsb.restaurantenavapp.R
 @Composable
 fun ProductDetailsScreen(
     product: Product,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onNavigateToCheckout: () -> Unit
 ) {
     Column(
         modifier
@@ -57,7 +58,7 @@ fun ProductDetailsScreen(
             Text(product.price.toPlainString(), fontSize = 18.sp)
             Text(product.description)
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { onNavigateToCheckout() },
                 Modifier
                     .fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
@@ -75,6 +76,7 @@ fun ProductDetailsScreenPreview() {
         Surface {
             ProductDetailsScreen(
                 product = sampleProducts.random(),
+                onNavigateToCheckout = {}
             )
         }
     }

@@ -1,6 +1,7 @@
 package com.ggsb.restaurantenavapp.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -31,6 +32,7 @@ fun DrinksListScreen(
     title: String = "Bebidas",
     products: List<Product> = emptyList(),
     columns: Int = 2,
+    onNavigateToDetails: (Product) -> Unit
 ) {
     Column(
         modifier
@@ -56,7 +58,10 @@ fun DrinksListScreen(
         ) {
             items(products) { p ->
                 DrinkProductCard(
-                    product = p
+                    product = p,
+                    Modifier.clickable{
+                        onNavigateToDetails(p)
+                    }
                 )
             }
         }
@@ -70,7 +75,8 @@ fun DrinksListScreenPreview() {
         Surface {
             DrinksListScreen(
                 products = sampleProducts,
-                title = "Bebidas"
+                title = "Bebidas",
+                onNavigateToDetails = {}
             )
         }
     }

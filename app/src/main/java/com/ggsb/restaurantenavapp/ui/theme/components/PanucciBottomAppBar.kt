@@ -8,12 +8,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
-import com.ggsb.restaurantenavapp.sampledata.bottomAppBarItems
+import com.ggsb.restaurantenavapp.navigation.AppDestination
+import com.ggsb.restaurantenavapp.navigation.bottomAppBarItems
 import com.ggsb.restaurantenavapp.ui.theme.RestauranteNavAppTheme
 
 class BottomAppBarItem(
     val label: String,
-    val icon: ImageVector
+    val icon: ImageVector,
+    val destination: AppDestination,
 )
 
 @Composable
